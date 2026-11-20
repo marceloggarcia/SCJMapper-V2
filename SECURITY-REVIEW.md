@@ -3,16 +3,42 @@
 **Date:** 2026-11-20  
 **Version:** 2.50.0.85  
 **Framework:** .NET 4.7.2  
-**Status:** ⚠️ CRITICAL VULNERABILITIES FIXED
+**Current status:** ⚠️ HIGH VULNERABILITY OPEN — NOT READY FOR RELEASE
 
 ---
 
 ## Executive Summary
 
-A comprehensive security audit was conducted on SCJMapper-V2. **Two critical vulnerabilities were identified and fixed:**
+A prior security audit identified two vulnerabilities and documented their remediations:
 
 1. 🔴 **CRITICAL**: BinaryFormatter Deserialization (CWE-502) → **FIXED**
 2. 🟠 **HIGH**: XXE XML Injection (CWE-611) → **FIXED**
+
+The follow-up review on 2026-11-20 found a HIGH-severity cache-integrity and path-traversal issue in the current code. The earlier “Ready for Release” status is superseded; do not release until this finding is addressed.
+
+| # | Severity | File | Lines | Vulnerability | Confidence |
+|---|----------|------|-------|---------------|------------|
+| 1 | 🟠 HIGH | [SC/SecureSerializer.cs](./SC/SecureSerializer.cs), [SC/SCFiles.cs](./SC/SCFiles.cs), [SC/SCFile.cs](./SC/SCFile.cs) | 21, 105-111; 287, 343-357; 23-25 | The embedded HMAC key can be recovered and used to forge cache files; an unvalidated deserialized `Filename` can escape the cache directory and cause arbitrary file writes if an attacker can place a `.scj` file there. | 9/10 |
+
+### Follow-up Finding: Forgeable Cache HMAC and Arbitrary File Write
+
+**Severity:** 🟠 HIGH
+**Confidence:** 9/10
+
+`SecureSerializer` uses a source-embedded HMAC key (`SecureSerializer.cs:21`). Because this key can be recovered from the application, the HMAC does not establish that a cache file is trusted. The cache loading path processes `.scj` files (`SCFiles.cs:287`), and the deserialized `SCFile.Filename` is not constrained (`SCFile.cs:23-25`) before it is used to form output paths (`SCFiles.cs:343-357`).
+
+**Precondition:** An attacker can place or modify a `.scj` file in `FileStoreDir`, for example through shared storage or untrusted imported/copied data.
+
+**Impact:** A forged cache entry can cause the application to overwrite files that are writable by its process. Depending on the overwritten file and later use, this may enable further compromise.
+
+**Recommended remediation:**
+- Do not use a key embedded in the executable as a trust boundary. If cache integrity is required, use a per-user secret protected by an OS facility such as DPAPI, and enforce appropriate storage permissions.
+- Independently validate the filename and canonicalized destination; reject rooted paths and traversal, and ensure the final path remains beneath `FileStoreDir`.
+- Prefer deriving cache filenames from a trusted, fixed identifier rather than a deserialized property.
+
+### Additional Hardening Recommendation
+
+This was not classified as a confirmed vulnerability in the follow-up review: explicitly set `DtdProcessing = DtdProcessing.Prohibit` and `XmlResolver = null` in [SC/DProfileReader.cs](./SC/DProfileReader.cs) around lines 440-446.
 
 ---
 
@@ -307,11 +333,11 @@ Ensure `Newtonsoft.Json` (Json.NET) is installed:
 
 ## Sign-Off
 
-**Security Audit:** ✅ Completed  
-**Vulnerabilities Found:** 2  
-**Vulnerabilities Fixed:** 2  
-**Status:** Ready for Release  
-**Reviewed by:** Security Analysis Team  
+**Security Audit:** ✅ Follow-up review completed
+**Prior vulnerabilities:** 2 documented as fixed in the earlier review
+**Current open findings:** 1 HIGH
+**Status:** Not ready for release until the HIGH finding is remediated
+**Reviewed by:** Security review
 **Date:** 2026-11-20  
 
 ---
