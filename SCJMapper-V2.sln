@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.1062
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCJMapper-V2", "SCJMapper-V2.csproj", "{B5F8B339-E02E-4F6D-BF62-D776F165910F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCJMapper.Tests", "SCJMapper.Tests\SCJMapper.Tests.csproj", "{F8E9C8E8-8E8E-8E8E-8E8E-8E8E8E8E8E8E}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{6C767E48-A71E-4822-8B3F-2ED741F06582}"
 	ProjectSection(SolutionItems) = preProject
 		AC_Examples.txt = AC_Examples.txt
@@ -31,6 +33,14 @@ Global
 		{B5F8B339-E02E-4F6D-BF62-D776F165910F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B5F8B339-E02E-4F6D-BF62-D776F165910F}.Release|x86.ActiveCfg = Release|Any CPU
 		{B5F8B339-E02E-4F6D-BF62-D776F165910F}.Release|x86.Build.0 = Release|Any CPU
+		{F8E9C8E8-8E8E-8E8E-8E8E-8E8E8E8E8E8E}.Debug|Any CPU.ActiveCfg = Debug|AnyCPU
+		{F8E9C8E8-8E8E-8E8E-8E8E-8E8E8E8E8E8E}.Debug|Any CPU.Build.0 = Debug|AnyCPU
+		{F8E9C8E8-8E8E-8E8E-8E8E-8E8E8E8E8E8E}.Debug|x86.ActiveCfg = Debug|AnyCPU
+		{F8E9C8E8-8E8E-8E8E-8E8E-8E8E8E8E8E8E}.Debug|x86.Build.0 = Debug|AnyCPU
+		{F8E9C8E8-8E8E-8E8E-8E8E-8E8E8E8E8E8E}.Release|Any CPU.ActiveCfg = Release|AnyCPU
+		{F8E9C8E8-8E8E-8E8E-8E8E-8E8E8E8E8E8E}.Release|Any CPU.Build.0 = Release|AnyCPU
+		{F8E9C8E8-8E8E-8E8E-8E8E-8E8E8E8E8E8E}.Release|x86.ActiveCfg = Release|AnyCPU
+		{F8E9C8E8-8E8E-8E8E-8E8E-8E8E8E8E8E8E}.Release|x86.Build.0 = Release|AnyCPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

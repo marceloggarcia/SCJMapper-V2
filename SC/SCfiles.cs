@@ -4,12 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 using SCJMapper_V2.CryXMLlib;
 using SCJMapper_V2.p4kFile;
 using static SCJMapper_V2.SC.SCUiText;
-using System.IO.Compression;
 
 namespace SCJMapper_V2.SC
 {
@@ -282,18 +279,17 @@ namespace SCJMapper_V2.SC
       if ( !Directory.Exists( TheUser.FileStoreDir ) )
         return; // EXIT - no files to read from - first time maybe or deleted
 
-      // catch any serializing error
+      // Load serialized files with secure deserialization
       try {
         IEnumerable<string> filelist = Directory.EnumerateFiles( TheUser.FileStoreDir, "*.scj" );
         foreach ( string file in filelist ) {
-          SCFile obj = new SCFile( );
-
-          using ( Stream stream = File.Open( file, FileMode.Open ) ) {
-            using ( var gZipStream = new GZipStream( stream, CompressionMode.Decompress ) ) {
-              BinaryFormatter binaryFormatter = new BinaryFormatter( );
-              obj = (SCFile)binaryFormatter.Deserialize( gZipStream );
+          try {
+            SCFile obj = SecureSerializer.DeserializeFromFile<SCFile>( file );
+            if ( obj == null ) {
+              log.WarnFormat( "LoadPack - Failed to deserialize {0}, skipping file", Path.GetFileName( file ) );
+              continue;
             }
-            stream.Close( );
+
             if ( obj.Filetype == SCFile.FileType.PakFile ) {
               m_pakFile = obj;
             }
@@ -307,12 +303,17 @@ namespace SCJMapper_V2.SC
               m_langFiles.Add( obj.Filename, obj );
             }
           }
+          catch ( Exception ex ) {
+            log.WarnFormat( "LoadPack - Error deserializing {0}: {1}", Path.GetFileName( file ), ex.Message );
+            continue; // Skip corrupted file and continue with others
+          }
         }
       }
       catch ( Exception e ) {
-        log.Error( "LoadPack - deserialization error:", e );
-        return; // ERROR EXIT - cannot read
+        log.Error( "LoadPack - File enumeration error:", e );
+        return; // ERROR EXIT - cannot read directory
       }
+
 
     }
 
@@ -336,48 +337,24 @@ namespace SCJMapper_V2.SC
         return; // ERROR EXIT - cannot create a dir to write to
       }
 
-      // catch any serializing error
+      // Save all serialized objects with secure serialization
       try {
-        // save p4k reference for the filedate
-        using ( Stream stream = File.Open( Path.Combine( TheUser.FileStoreDir, m_pakFile.Filename + ".scj" ), FileMode.Create ) ) {
-          using ( var gZipStream = new GZipStream( stream, CompressionMode.Compress ) ) {
-            BinaryFormatter binaryFormatter = new BinaryFormatter( );
-            binaryFormatter.Serialize( gZipStream, m_pakFile );
-          }
-          stream.Close( );
-        }
+        // save p4k reference
+        SecureSerializer.SerializeToFile( m_pakFile, Path.Combine( TheUser.FileStoreDir, m_pakFile.Filename + ".scj" ) );
 
-        if ( m_defProfile.Filetype == SCFile.FileType.DefProfile ) {
-          using ( Stream stream = File.Open( Path.Combine( TheUser.FileStoreDir, m_defProfile.Filename + ".scj" ), FileMode.Create ) ) {
-            using ( var gZipStream = new GZipStream( stream, CompressionMode.Compress ) ) {
-              BinaryFormatter binaryFormatter = new BinaryFormatter( );
-              binaryFormatter.Serialize( gZipStream, m_defProfile );
-            }
-            stream.Close( );
-          }
+        if ( m_defProfile != null && m_defProfile.Filetype == SCFile.FileType.DefProfile ) {
+          SecureSerializer.SerializeToFile( m_defProfile, Path.Combine( TheUser.FileStoreDir, m_defProfile.Filename + ".scj" ) );
         }
 
         foreach ( KeyValuePair<string, SCFile> kv in m_mapFiles ) {
-          if ( kv.Value.Filetype == SCFile.FileType.MapFile ) {
-            using ( Stream stream = File.Open( Path.Combine( TheUser.FileStoreDir, kv.Value.Filename + ".scj" ), FileMode.Create ) ) {
-              using ( var gZipStream = new GZipStream( stream, CompressionMode.Compress ) ) {
-                BinaryFormatter binaryFormatter = new BinaryFormatter( );
-                binaryFormatter.Serialize( gZipStream, kv.Value );
-              }
-              stream.Close( );
-            }
+          if ( kv.Value != null && kv.Value.Filetype == SCFile.FileType.MapFile ) {
+            SecureSerializer.SerializeToFile( kv.Value, Path.Combine( TheUser.FileStoreDir, kv.Value.Filename + ".scj" ) );
           }
         }
 
         foreach ( KeyValuePair<string, SCFile> kv in m_langFiles ) {
-          if ( kv.Value.Filetype == SCFile.FileType.LangFile ) {
-            using ( Stream stream = File.Open( Path.Combine( TheUser.FileStoreDir, kv.Value.Filename + ".scj" ), FileMode.Create ) ) {
-              using ( var gZipStream = new GZipStream( stream, CompressionMode.Compress ) ) {
-                BinaryFormatter binaryFormatter = new BinaryFormatter( );
-                binaryFormatter.Serialize( gZipStream, kv.Value );
-              }
-              stream.Close( );
-            }
+          if ( kv.Value != null && kv.Value.Filetype == SCFile.FileType.LangFile ) {
+            SecureSerializer.SerializeToFile( kv.Value, Path.Combine( TheUser.FileStoreDir, kv.Value.Filename + ".scj" ) );
           }
         }
       }

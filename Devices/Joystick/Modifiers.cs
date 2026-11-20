@@ -72,6 +72,8 @@ namespace SCJMapper_V2.Devices.Joystick
       settings.ConformanceLevel = ConformanceLevel.Fragment;
       settings.IgnoreWhitespace = true;
       settings.IgnoreComments = true;
+      settings.DtdProcessing = DtdProcessing.Prohibit;
+      settings.XmlResolver = null;
       XmlReader reader = XmlReader.Create( new StringReader( xml ), settings );
 
       reader.Read( );

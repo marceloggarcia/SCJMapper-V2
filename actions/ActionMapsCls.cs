@@ -345,7 +345,9 @@ namespace SCJMapper_V2.Actions
       var settings = new XmlReaderSettings {
         ConformanceLevel = ConformanceLevel.Fragment,
         IgnoreWhitespace = true,
-        IgnoreComments = true
+        IgnoreComments = true,
+        DtdProcessing = DtdProcessing.Prohibit,
+        XmlResolver = null
       };
       using ( var reader = XmlReader.Create( new StringReader( xml ), settings ) ) {
 
