@@ -31,7 +31,7 @@ namespace SCJMapper_V2.Devices.Gamepad
 
     public string Caption
     {
-      set { gbxBoxCap.Text = value; }
+      set { gbxBoxCap.Tag = null; gbxBoxCap.Text = value; }
     }
 
     public string DPad

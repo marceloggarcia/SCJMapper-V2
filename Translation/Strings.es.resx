@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="btAccept" xml:space="preserve"><value>Aceptar</value></data>
+  <data name="btAssign" xml:space="preserve"><value>Asignar</value></data>
+  <data name="btBlend" xml:space="preserve"><value>Desactivar</value></data>
+  <data name="btCancel" xml:space="preserve"><value>Cancelar</value></data>
+  <data name="btClear" xml:space="preserve"><value>Limpiar</value></data>
+  <data name="btClearFilter" xml:space="preserve"><value>Limpiar filtro</value></data>
+  <data name="btDump" xml:space="preserve"><value>Generar XML</value></data>
+  <data name="btFind" xml:space="preserve"><value>Buscar</value></data>
+  <data name="btGrab" xml:space="preserve"><value>Aplicar XML</value></data>
+  <data name="btJsKbd" xml:space="preserve"><value>JS / Teclado</value></data>
+  <data name="btSaveMyMapping" xml:space="preserve"><value>Generar y guardar mi asignación</value></data>
+  <data name="buttonExit" xml:space="preserve"><value>Salir</value></data>
+  <data name="cbxAutoTabXML" xml:space="preserve"><value>Cambiar automáticamente entre XML y asignaciones</value></data>
+  <data name="cbxCSVListing" xml:space="preserve"><value>Usar listado CSV</value></data>
+  <data name="cbxDetectGamepad" xml:space="preserve"><value>Usar mando</value></data>
+  <data name="cbxListModifiers" xml:space="preserve"><value>Listar modificadores</value></data>
+  <data name="cbxShowGamepad" xml:space="preserve"><value>Mando</value></data>
+  <data name="cbxShowJoystick" xml:space="preserve"><value>Joystick</value></data>
+  <data name="cbxShowKeyboard" xml:space="preserve"><value>Teclado</value></data>
+  <data name="cbxShowMappedOnly" xml:space="preserve"><value>Asignados</value></data>
+  <data name="cbxShowMouse" xml:space="preserve"><value>Ratón</value></data>
+  <data name="cbxThrottle" xml:space="preserve"><value>Acelerador</value></data>
+  <data name="cbxTreeTips" xml:space="preserve"><value>Mostrar ayudas del árbol</value></data>
+  <data name="FormSettings" xml:space="preserve"><value>Configuración</value></data>
+  <data name="gbxAdvanced" xml:space="preserve"><value>Opciones avanzadas...</value></data>
+  <data name="gbxIgnoreBt" xml:space="preserve"><value>Configuración: introduzca los números de botones que desea ignorar, separados por espacios (ej. 24 25)</value></data>
+  <data name="gbxIgnoreMaps" xml:space="preserve"><value>Mapas de acciones: seleccione los que desea ocultar</value></data>
+  <data name="gbxSCPath" xml:space="preserve"><value>Ruta de Star Citizen o carpeta que contiene Data.p4k</value></data>
+  <data name="lblActionFilter" xml:space="preserve"><value>Filtro de acciones:</value></data>
+  <data name="lblDevCtrl" xml:space="preserve"><value>Control</value></data>
+  <data name="lblMapping" xml:space="preserve"><value>Asignación</value></data>
+  <data name="lblMappingname" xml:space="preserve"><value>Nombre de asignación:</value></data>
+  <data name="lblProfileLang" xml:space="preserve"><value>Idioma:</value></data>
+  <data name="lblSelected" xml:space="preserve"><value>Seleccionado</value></data>
+  <data name="lblSettingNote" xml:space="preserve"><value>Nota: al aceptar los cambios se limpiará el árbol de acciones para aplicar la configuración.
+Cancele si desea guardar primero su trabajo.</value></data>
+  <data name="linkLblReleases" xml:space="preserve"><value>Información y actualizaciones en GitHub...</value></data>
+  <data name="meDefaultsLoadAndGrab" xml:space="preserve"><value>Valores predeterminados, cargar y aplicar</value></data>
+  <data name="meDumpActiontreeAsXML" xml:space="preserve"><value>Generar árbol de acciones como XML</value></data>
+  <data name="meDumpDefaultProfile" xml:space="preserve"><value>Mostrar perfil predeterminado</value></data>
+  <data name="meDumpLogfile" xml:space="preserve"><value>Mostrar registro</value></data>
+  <data name="meDumpMappingList" xml:space="preserve"><value>Mostrar lista de asignaciones</value></data>
+  <data name="meJsReassignDialog" xml:space="preserve"><value>Reasignar joysticks...</value></data>
+  <data name="meLoad" xml:space="preserve"><value>Cargar</value></data>
+  <data name="meLoadAndGrab" xml:space="preserve"><value>Cargar y aplicar</value></data>
+  <data name="msBtLoadMap" xml:space="preserve"><value>Cargar...</value></data>
+  <data name="msBtLoadMap_TT" xml:space="preserve"><value>Cargar una asignación con opciones</value></data>
+  <data name="meResetDefaults" xml:space="preserve"><value>Restablecer valores predeterminados</value></data>
+  <data name="meResetEmpty" xml:space="preserve"><value>Restablecer sin asignaciones</value></data>
+  <data name="meResetLoadAndGrab" xml:space="preserve"><value>Restablecer, cargar y aplicar</value></data>
+  <data name="meSettingsDialog" xml:space="preserve"><value>Configuración...</value></data>
+  <data name="meShowDeviceTuningDialog" xml:space="preserve"><value>Mostrar ajuste del dispositivo...</value></data>
+  <data name="meShowOptionsDialog" xml:space="preserve"><value>Mostrar opciones...</value></data>
+  <data name="meShowToggleTable" xml:space="preserve"><value>Mostrar u ocultar tabla...</value></data>
+  <data name="msBtDump" xml:space="preserve"><value>Mostrar...</value></data>
+  <data name="msBtDump_TT" xml:space="preserve"><value>Obtener información adicional</value></data>
+  <data name="msBtLoad" xml:space="preserve"><value>Restablecer...</value></data>
+  <data name="msBtLoad_TT" xml:space="preserve"><value>Restablecer el árbol de acciones</value></data>
+  <data name="msBtConfig" xml:space="preserve"><value>Configurar...</value></data>
+  <data name="msBtConfig_TT" xml:space="preserve"><value>Configurar el programa</value></data>
+  <data name="msBtShow" xml:space="preserve"><value>Ver...</value></data>
+  <data name="msBtShow_TT" xml:space="preserve"><value>Mostrar opciones, ajustes y tablas</value></data>
+  <data name="tPageDump" xml:space="preserve"><value>Información (XML, registros, etc.)</value></data>
+  <data name="tPageOther" xml:space="preserve"><value>Todas las asignaciones</value></data>
+  <data name="tsLblMappings" xml:space="preserve"><value>Asignaciones:</value></data>
+  <data name="tsLblProfile" xml:space="preserve"><value>Perfil:</value></data>
+  <data name="tsLblSupportedProfile" xml:space="preserve"><value>Compatibilidad:</value></data>
+  <data name="btCopyToAllAxis" xml:space="preserve"><value>Copiar a todos los ejes</value></data>
+  <data name="btDone" xml:space="preserve"><value>Listo</value></data>
+  <data name="FormJSCalCurve" xml:space="preserve"><value>Ajuste del dispositivo de vuelo</value></data>
+  <data name="FormOptions" xml:space="preserve"><value>SCJMapper - Opciones</value></data>
+  <data name="FormReassign" xml:space="preserve"><value>Reasignar números de joystick</value></data>
+  <data name="gbxBoxCap" xml:space="preserve"><value>Capacidades del dispositivo</value></data>
+  <data name="gbxGBox" xml:space="preserve"><value>Estado del mando</value></data>
+  <data name="gbxJAssignment" xml:space="preserve"><value>Asignación jsN</value></data>
+  <data name="gbxJBox" xml:space="preserve"><value>Estado del joystick</value></data>
+  <data name="gbxReassignJS" xml:space="preserve"><value>Asignación jsN</value></data>
+  <data name="lblChart" xml:space="preserve"><value>Seleccione una opción y arrastre con el ratón</value></data>
+  <data name="lblDamp" xml:space="preserve"><value>amortiguación</value></data>
+  <data name="lblJsnNumber" xml:space="preserve"><value>Este dispositivo aparece como:</value></data>
+  <data name="lblNumAxes" xml:space="preserve"><value>N.º de ejes:</value></data>
+  <data name="lblNumButtons" xml:space="preserve"><value>N.º de botones:</value></data>
+  <data name="lblNumDPad" xml:space="preserve"><value>N.º de crucetas:</value></data>
+  <data name="lblNumPOV" xml:space="preserve"><value>N.º de POV:</value></data>
+  <data name="lblNumSticks" xml:space="preserve"><value>N.º de palancas:</value></data>
+  <data name="lblNumTriggers" xml:space="preserve"><value>N.º de gatillos:</value></data>
+  <data name="lblTurntime" xml:space="preserve"><value>segundos por giro de 360°</value></data>
+  <data name="xCurve" xml:space="preserve"><value>Curva</value></data>
+  <data name="xDeadzone" xml:space="preserve"><value>Zona muerta</value></data>
+  <data name="xDevControl" xml:space="preserve"><value>Control del dispositivo</value></data>
+  <data name="xDeviceOptions" xml:space="preserve"><value>Opciones del dispositivo</value></data>
+  <data name="xExponent" xml:space="preserve"><value>Exponente</value></data>
+  <data name="xInstance" xml:space="preserve"><value>Instancia</value></data>
+  <data name="xInvert" xml:space="preserve"><value>Invertir</value></data>
+  <data name="xNone" xml:space="preserve"><value>Ninguno</value></data>
+  <data name="xOption" xml:space="preserve"><value>Opción</value></data>
+  <data name="xPoint1" xml:space="preserve"><value>Punto 1:</value></data>
+  <data name="xPoint2" xml:space="preserve"><value>Punto 2:</value></data>
+  <data name="xPoint3" xml:space="preserve"><value>Punto 3:</value></data>
+  <data name="xSaturation" xml:space="preserve"><value>Saturación</value></data>
+  <data name="btCancelEdit" xml:space="preserve"><value>Deshacer cambios</value></data>
+  <data name="btDisableUnmapped" xml:space="preserve"><value>Desactivar los no asignados</value></data>
+  <data name="btUpdateFromEdit" xml:space="preserve"><value>Aceptar cambios</value></data>
+  <data name="chkEditDisabled" xml:space="preserve"><value>Editar desactivados</value></data>
+  <data name="FormTable" xml:space="preserve"><value>Árbol de acciones en tabla</value></data>
+  <data name="gbxEditBindings" xml:space="preserve"><value>Editar</value></data>
+  <data name="gbxFilters" xml:space="preserve"><value>Filtros</value></data>
+  <data name="lblDefBindFilter" xml:space="preserve"><value>Filtro predeterminado</value></data>
+  <data name="lblLoadingData" xml:space="preserve"><value>Cargando datos...</value></data>
+  <data name="lblUsrBindFilter" xml:space="preserve"><value>Filtro de asignación</value></data>
+  <data name="tActionText" xml:space="preserve"><value>Acción</value></data>
+  <data name="tAddBind" xml:space="preserve"><value>Asignación adicional</value></data>
+  <data name="tDef_Binding" xml:space="preserve"><value>Asignación pred.</value></data>
+  <data name="tDef_Modifier" xml:space="preserve"><value>Modificador pred.</value></data>
+  <data name="tDevice" xml:space="preserve"><value>Dispositivo</value></data>
+  <data name="tDisabled" xml:space="preserve"><value>Desactivado</value></data>
+  <data name="tREF_ActionMap" xml:space="preserve"><value>Mapa de acciones</value></data>
+  <data name="tUsr_Binding" xml:space="preserve"><value>Asignación</value></data>
+  <data name="tUsr_Modifier" xml:space="preserve"><value>Modificador</value></data>
+  <data name="rbLivePtExponent" xml:space="preserve"><value>Valor exp.</value></data>
+  <data name="mapAction" xml:space="preserve"><value>Acción</value></data>
+  <data name="mapActionmap" xml:space="preserve"><value>Mapa de acciones</value></data>
+  <data name="mapActivationMode" xml:space="preserve"><value>Modo de activación</value></data>
+  <data name="mapDefault" xml:space="preserve"><value>predeterminado</value></data>
+  <data name="mapHeader" xml:space="preserve"><value>Acciones del control:</value></data>
+  <data name="mapLocation" xml:space="preserve"><value>Ubicación</value></data>
+  <data name="mapMapped" xml:space="preserve"><value>asignado</value></data>
+  <data name="mapModified" xml:space="preserve"><value>modificado</value></data>
+  <data name="mapProfile" xml:space="preserve"><value>perfil</value></data>
+  <data name="tdiAddBinding" xml:space="preserve"><value>Agregar asignación</value></data>
+  <data name="tdiAssignBinding" xml:space="preserve"><value>Asignar control</value></data>
+  <data name="tdiBlendBinding" xml:space="preserve"><value>Desactivar asignación</value></data>
+  <data name="tdiClearBinding" xml:space="preserve"><value>Limpiar asignación</value></data>
+  <data name="tdiCollapseAll" xml:space="preserve"><value>Contraer hasta la selección</value></data>
+  <data name="tdiDelBinding" xml:space="preserve"><value>Eliminar asignación</value></data>
+  <data name="tdiExpandAll" xml:space="preserve"><value>Expandir todas las asignaciones</value></data>
+  <data name="tsiCopy" xml:space="preserve"><value>Copiar</value></data>
+  <data name="tsiOpen" xml:space="preserve"><value>Abrir...</value></data>
+  <data name="tsiPaste" xml:space="preserve"><value>Pegar</value></data>
+  <data name="tsiPReplace" xml:space="preserve"><value>Pegar (reemplazar todo)</value></data>
+  <data name="tsiSaveAs" xml:space="preserve"><value>Guardar como...</value></data>
+  <data name="tsiSelAll" xml:space="preserve"><value>Seleccionar todo</value></data>
+  <data name="lB" xml:space="preserve"><value>Botones:</value></data>
+  <data name="setNote1" xml:space="preserve"><value>Para cambiar la opción de mando debe reiniciar la aplicación.</value></data>
+  <data name="setNote2" xml:space="preserve"><value>Aviso de configuración</value></data>
+  <data name="setNote3" xml:space="preserve"><value>Se asignó el mismo jsN a más de un joystick. Corríjalo o salga con Cancelar.</value></data>
+  <data name="setNote4" xml:space="preserve"><value>Aviso de configuración</value></data>
+  <data name="tdiTxDefActivationMode" xml:space="preserve"><value>Sin modo de activación</value></data>
+  <data name="xGamepad" xml:space="preserve"><value>Mando</value></data>
+  <data name="xJoystick" xml:space="preserve"><value>Joystick</value></data>
+  <data name="meShowDeviceMonitoringDialog" xml:space="preserve"><value>Mostrar monitor de dispositivos...</value></data>
+  <data name="btTogMonitor" xml:space="preserve"><value>Monitoreo</value></data>
+  <data name="chkMonitorMouse" xml:space="preserve"><value>Monitorear ejes del ratón</value></data>
+  <data name="FormDeviceMonitor" xml:space="preserve"><value>Monitor de dispositivos</value></data>
+  <data name="xKeyboard" xml:space="preserve"><value>Teclado</value></data>
+  <data name="xMouse" xml:space="preserve"><value>Ratón</value></data>
+  <data name="scpAutoPathFailed" xml:space="preserve"><value>No se encuentra la instalación de Star Citizen.\nIndique la ruta manualmente en Configuración.</value></data>
+  <data name="scpClientDirNotFound" xml:space="preserve"><value>No se encuentra el directorio del cliente de Star Citizen.\n\nSe buscó en:\n{0}\n\nAjuste la ruta en Configuración.\n</value></data>
+  <data name="scpEmptyString" xml:space="preserve"><value>No se indicó una ruta.</value></data>
+  <data name="scpInvalidPath" xml:space="preserve"><value>La ruta indicada no existe.</value></data>
+  <data name="setMsgBox" xml:space="preserve"><value>Ruta de instalación de Star Citizen</value></data>
+  <data name="chkReport" xml:space="preserve"><value>Listar acciones</value></data>
+  <data name="chkHideXX" xml:space="preserve"><value>Ocultar</value></data>
+  <data name="xForced" xml:space="preserve"><value>Forzar escritura</value></data>
+  <data name="xYes" xml:space="preserve"><value>Sí</value></data>
+  <data name="lblLayoutNote" xml:space="preserve"><value>Seleccione un elemento de la lista y haga clic arriba para asignar colores.
+
+Nota:
+El fondo blanco se trata como transparente al dibujar sobre la imagen.</value></data>
+  <data name="meShowLayoutDialog" xml:space="preserve"><value>Mostrar diseño del dispositivo...</value></data>
+  <data name="FormLayout" xml:space="preserve"><value>Diseño del dispositivo</value></data>
+  <data name="gbxColors" xml:space="preserve"><value>Configuración del diseño</value></data>
+  <data name="lblTextColor" xml:space="preserve"><value>Color del texto</value></data>
+  <data name="lblBackColor" xml:space="preserve"><value>Color de fondo</value></data>
+  <data name="cbxPTU" xml:space="preserve"><value>Usar carpetas PTU</value></data>
+  <data name="meDumpSCJoyServerCommands" xml:space="preserve"><value>Mostrar comandos SCJoyServer</value></data>
+  <data name="tabOptions" xml:space="preserve"><value>Opciones de vuelo</value></data>
+  <data name="tabDevOption" xml:space="preserve"><value>Opciones del dispositivo</value></data>
+  <data name="lblYaw" xml:space="preserve"><value>Guiñada</value></data>
+  <data name="lblPitch" xml:space="preserve"><value>Cabeceo</value></data>
+  <data name="lblRoll" xml:space="preserve"><value>Alabeo</value></data>
+  <data name="rbTuneStrafe" xml:space="preserve"><value>Ajustar desplazamiento</value></data>
+  <data name="rbTuneYPR" xml:space="preserve"><value>Ajustar rotación</value></data>
+  <data name="tmeK_Tab" xml:space="preserve"><value>Teclado - TAB</value></data>
+  <data name="tmeXAxis" xml:space="preserve"><value>Eje X (horizontal)</value></data>
+  <data name="tmeYAxis" xml:space="preserve"><value>Eje Y (vertical)</value></data>
+  <data name="tmeWUp" xml:space="preserve"><value>Rueda arriba</value></data>
+  <data name="tmeWDown" xml:space="preserve"><value>Rueda abajo</value></data>
+  <data name="layoutActionGroups" xml:space="preserve"><value>Grupos de acciones</value></data>
+  <data name="layoutActionMaps" xml:space="preserve"><value>Mapas de acciones</value></data>
+</root>

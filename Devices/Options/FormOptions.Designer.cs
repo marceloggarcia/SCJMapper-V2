@@ -127,6 +127,7 @@
       this.tabOptions.Controls.Add(this.lvOptionTree);
       this.tabOptions.Location = new System.Drawing.Point(4, 22);
       this.tabOptions.Name = "tabOptions";
+      this.tabOptions.Tag = "§";
       this.tabOptions.Padding = new System.Windows.Forms.Padding(3);
       this.tabOptions.Size = new System.Drawing.Size(630, 644);
       this.tabOptions.TabIndex = 0;
@@ -149,6 +150,7 @@
       // 
       this.tabDevOption.Location = new System.Drawing.Point(4, 22);
       this.tabDevOption.Name = "tabDevOption";
+      this.tabDevOption.Tag = "§";
       this.tabDevOption.Padding = new System.Windows.Forms.Padding(3);
       this.tabDevOption.Size = new System.Drawing.Size(630, 644);
       this.tabDevOption.TabIndex = 1;

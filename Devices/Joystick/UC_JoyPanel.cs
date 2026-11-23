@@ -35,7 +35,7 @@ namespace SCJMapper_V2.Devices.Joystick
 
     public string Caption
     {
-      set { gbxBoxCap.Text = value; }
+      set { gbxBoxCap.Tag = null; gbxBoxCap.Text = value; }
     }
 
     public string X
