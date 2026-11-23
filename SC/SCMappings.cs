@@ -83,8 +83,20 @@ namespace SCJMapper_V2.SC
 
     static public void UpdateMappingNames()
     {
+      m_scMappings.Clear( );
+
+      // Ship the SOL-R2 HOSAS mapping with the application and install it into
+      // the user's Star Citizen mapping folder when available.
+      string bundledMapping = Path.Combine( TheUser.AppDir, "Mappings", "layout_SOL-R_2_HOSAS_Suggest_Mapping.xml" );
+      if ( File.Exists( bundledMapping ) && Directory.Exists( SCPath.SCClientMappingPath ) ) {
+        string userMapping = Path.Combine( SCPath.SCClientMappingPath, Path.GetFileName( bundledMapping ) );
+        if ( !File.Exists( userMapping ) ) {
+          File.Copy( bundledMapping, userMapping, false );
+          log.InfoFormat( "Installed bundled SOL-R2 HOSAS mapping: {0}", userMapping );
+        }
+      }
+
       if ( Directory.Exists( SCPath.SCClientMappingPath ) ) {
-        m_scMappings.Clear( );
         m_scMappings = Directory.EnumerateFiles( SCPath.SCClientMappingPath ).ToList( );
         foreach ( KeyValuePair<string, string> kv in m_scGameMaps ) {
           m_scMappings.Insert( 0, kv.Key ); // insert before others

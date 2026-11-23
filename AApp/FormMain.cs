@@ -325,6 +325,23 @@ namespace SCJMapper_V2
       }
     }
 
+    private void LocalizeInterface()
+    {
+      Tx.LocalizeControlTree( this );
+      Tx.LocalizeControlTree( cmCopyPaste );
+      Tx.LocalizeControlTree( cmAddDel );
+      msBtLoad.ToolTipText = Tx.Translate( msBtLoad.Name + "_TT" );
+      msBtDump.ToolTipText = Tx.Translate( msBtDump.Name + "_TT" );
+      msBtShow.ToolTipText = Tx.Translate( msBtShow.Name + "_TT" );
+      msBtConfig.ToolTipText = Tx.Translate( msBtConfig.Name + "_TT" );
+      msBtLoadMap.ToolTipText = Tx.Translate( msBtLoadMap.Name + "_TT" );
+      tmeK_Tab.Text = Tx.Translate( tmeK_Tab.Name );
+      tmeXAxis.Text = Tx.Translate( tmeXAxis.Name );
+      tmeYAxis.Text = Tx.Translate( tmeYAxis.Name );
+      tmeWUp.Text = Tx.Translate( tmeWUp.Name );
+      tmeWDown.Text = Tx.Translate( tmeWDown.Name );
+    }
+
     /// <summary>
     ///  Handle the load event
     /// </summary>
@@ -334,6 +351,10 @@ namespace SCJMapper_V2
     {
       log.Debug( "MainForm_Load - Entry" );
 
+      if ( Enum.TryParse( AppSettings.Instance.UseLanguage, out SCUiText.Languages uiLanguage ) ) {
+        Tx.SetLanguage( uiLanguage );
+      }
+
       // 20190711 - this needs to be done before updating the Pack...
       // init PTU folder usage at the very start
       if ( AppSettings.Instance.UsePTU ) log.Debug( "Using PTU Folders" );
@@ -342,14 +363,7 @@ namespace SCJMapper_V2
 
       SCFiles.Instance.UpdatePack( ); // update game files
 
-      Tx.LocalizeControlTree( this );
-      Tx.LocalizeControlTree( cmCopyPaste );
-      Tx.LocalizeControlTree( cmAddDel );
-      msBtLoad.ToolTipText = Tx.Translate( msBtLoad.Name + "_TT" );
-      msBtDump.ToolTipText = Tx.Translate( msBtDump.Name + "_TT" );
-      msBtShow.ToolTipText = Tx.Translate( msBtShow.Name + "_TT" );
-      msBtConfig.ToolTipText = Tx.Translate( msBtConfig.Name + "_TT" );
-      msBtLoadMap.ToolTipText = Tx.Translate( msBtLoadMap.Name + "_TT" );
+      LocalizeInterface( );
 
       // some applic initialization 
       // Assign Size property - check if on screen, else use defaults
@@ -685,6 +699,12 @@ namespace SCJMapper_V2
         log.Debug( "  *** InitDirectInput phase 2 failed unexpectedly", ex );
         return false;
       }
+
+      // Prefer named left/right SOL devices as js1/js2. Devices without a side
+      // keep their DirectInput enumeration order.
+      dxJoysticks = dxJoysticks
+        .OrderBy( j => JoystickCls.SolDeviceSidePriority( j.prodName ) )
+        .ToList( );
 
       // Create the TabPages
       int tabs = 0;
@@ -1226,6 +1246,17 @@ namespace SCJMapper_V2
         // change language if needed
         if ( Enum.TryParse( AppSettings.Instance.UseLanguage, out SCUiText.Languages lang ) ) {
           SCUiText.Instance.Language = lang;
+          Tx.SetLanguage( lang );
+          LocalizeInterface( );
+          foreach ( JoystickCls joystick in DeviceInst.JoystickListRef ) {
+            Tx.LocalizeControlTree( joystick.TabPage );
+            joystick.TabPage.Text = string.Format( "{0} {1}", Tx.Translate( "xJoystick" ), joystick.DevInstance + 1 );
+          }
+          if ( DeviceInst.GamepadRef != null ) {
+            Tx.LocalizeControlTree( DeviceInst.GamepadRef.TabPage );
+            DeviceInst.GamepadRef.TabPage.Text = Tx.Translate( "xGamepad" ) + " ";
+          }
+          if ( FTAB != null ) FTAB.ApplyLocalization( );
         }
         treeView1.ShowNodeToolTips = AppSettings.Instance.ShowTreeTips;
 

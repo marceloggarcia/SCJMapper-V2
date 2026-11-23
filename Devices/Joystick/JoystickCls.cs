@@ -2,6 +2,7 @@
 using SharpDX.DirectInput;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
@@ -227,6 +228,24 @@ namespace SCJMapper_V2.Devices.Joystick
     static public bool IsJSValid( int jsNum )
     {
       return ( jsNum > JSnum_UNKNOWN ) && ( jsNum <= JSnum_MAX );
+    }
+
+    /// <summary>
+    /// Orders SOL-R1/SOL-R2 devices for the standard left/right mapping:
+    /// left -> js1, right -> js2.
+    /// </summary>
+    public static int SolDeviceSidePriority( string deviceName )
+    {
+      if ( string.IsNullOrWhiteSpace( deviceName ) ) return 3;
+
+      string normalized = new string( deviceName
+        .Where( c => char.IsLetterOrDigit( c ) )
+        .Select( c => char.ToUpperInvariant( c ) )
+        .ToArray( ) );
+
+      if ( normalized.Contains( "LEFT" ) || normalized.Contains( "IZQUIER" ) ) return 1;
+      if ( normalized.Contains( "RIGHT" ) || normalized.Contains( "DERECH" ) ) return 2;
+      return 3;
     }
 
     const string js_pattern = @"^js\d{1,2}_*";
