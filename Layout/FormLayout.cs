@@ -157,7 +157,7 @@ namespace SCJMapper_V2.Layout
       // Main dialog
       log.DebugFormat( "Layout - Form Loading - Loading Action Groups" );
       chkLbActionGroups.Items.Clear( );
-      chkLbActionGroups.Columns.Add( "Actiongroups", chkLbActionMaps.Width );
+      chkLbActionGroups.Columns.Add( Tx.Translate( "layoutActionGroups" ), chkLbActionMaps.Width );
       foreach ( var s in ActionGroupNames( ) ) {
         var item = chkLbActionGroups.Items.Add( s );
         item.ForeColor = MapProps.GroupColor( GroupNameToGroup( s ) ).ForeColor;
@@ -166,7 +166,7 @@ namespace SCJMapper_V2.Layout
       // color settings
       log.DebugFormat( "Layout - Form Loading - Loading Color Settings" );
       chkLbActionGroupsColor.Items.Clear( );
-      chkLbActionGroupsColor.Columns.Add( "Actiongroups", chkLbActionMaps.Width );
+      chkLbActionGroupsColor.Columns.Add( Tx.Translate( "layoutActionGroups" ), chkLbActionMaps.Width );
       foreach ( var s in ActionGroupNames( ) ) {
         var item = chkLbActionGroupsColor.Items.Add( s );
         item.ForeColor = MapProps.GroupColor( GroupNameToGroup( s ) ).ForeColor;
@@ -176,7 +176,7 @@ namespace SCJMapper_V2.Layout
       // Action Maps
       log.DebugFormat( "Layout - Form Loading - Loading Action Maps" );
       chkLbActionMaps.Items.Clear( ); m_chkLbActionMaps.Clear( );
-      chkLbActionMaps.Columns.Add( "Actionmaps", chkLbActionMaps.Width );
+      chkLbActionMaps.Columns.Add( Tx.Translate( "layoutActionMaps" ), chkLbActionMaps.Width );
       foreach ( EGroup g in Enum.GetValues( typeof( EGroup ) ) ) {
         var aMaps = ActionmapNames( g );
         foreach ( var aMap in aMaps ) {

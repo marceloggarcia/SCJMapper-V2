@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SCJMapper_V2.Properties;
+using SCJMapper_V2.SC;
 
 namespace SCJMapper_V2.Translation
 {
@@ -14,7 +15,20 @@ namespace SCJMapper_V2.Translation
     /// <summary>
     /// used Culture for translations
     /// </summary>
-    public static CultureInfo UsedCulture = CultureInfo.CurrentCulture;
+    private static readonly CultureInfo DefaultCulture = CultureInfo.CurrentCulture;
+    public static CultureInfo UsedCulture = DefaultCulture;
+
+    public static void SetLanguage( SCUiText.Languages language )
+    {
+      switch ( language ) {
+        case SCUiText.Languages.english: UsedCulture = CultureInfo.GetCultureInfo( "en" ); break;
+        case SCUiText.Languages.french: UsedCulture = CultureInfo.GetCultureInfo( "fr" ); break;
+        case SCUiText.Languages.german: UsedCulture = CultureInfo.GetCultureInfo( "de" ); break;
+        case SCUiText.Languages.spanish_latin_america:
+        case SCUiText.Languages.spanish_spain: UsedCulture = CultureInfo.GetCultureInfo( "es" ); break;
+        default: UsedCulture = DefaultCulture; break;
+      }
+    }
 
     // extension method
     public static string Translate( this Control ctl )
@@ -56,8 +70,8 @@ namespace SCJMapper_V2.Translation
           LocalizeControlTree( ctl );
         }
       }
-      else if ( ctrl is ToolStripDropDownButton ) {
-        foreach ( ToolStripItem ctl in ( ctrl as ToolStripDropDownButton ).DropDownItems ) {
+      else if ( ctrl is ToolStripDropDownItem ) {
+        foreach ( ToolStripItem ctl in ( ctrl as ToolStripDropDownItem ).DropDownItems ) {
           LocalizeControlTree( ctl );
         }
       }

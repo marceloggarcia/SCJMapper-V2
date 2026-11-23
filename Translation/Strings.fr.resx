@@ -785,4 +785,24 @@ Remarque:
 Le fond blanc est traité comme transparent tout en dessinant des éléments sur l'image.</value>
     <comment>9-Layout</comment>
   </data>
+  <data name="FormLayout" xml:space="preserve"><value>Disposition de l'appareil</value></data>
+  <data name="gbxColors" xml:space="preserve"><value>Paramètres de disposition</value></data>
+  <data name="lblTextColor" xml:space="preserve"><value>Couleur du texte</value></data>
+  <data name="lblBackColor" xml:space="preserve"><value>Couleur de fond</value></data>
+  <data name="cbxPTU" xml:space="preserve"><value>Utiliser les dossiers PTU</value></data>
+  <data name="meDumpSCJoyServerCommands" xml:space="preserve"><value>Afficher les commandes SCJoyServer</value></data>
+  <data name="tabOptions" xml:space="preserve"><value>Options de vol</value></data>
+  <data name="tabDevOption" xml:space="preserve"><value>Options de l'appareil</value></data>
+  <data name="lblYaw" xml:space="preserve"><value>Lacet</value></data>
+  <data name="lblPitch" xml:space="preserve"><value>Tangage</value></data>
+  <data name="lblRoll" xml:space="preserve"><value>Roulis</value></data>
+  <data name="rbTuneStrafe" xml:space="preserve"><value>Régler la translation</value></data>
+  <data name="rbTuneYPR" xml:space="preserve"><value>Régler la rotation</value></data>
+  <data name="tmeK_Tab" xml:space="preserve"><value>Clavier - TAB</value></data>
+  <data name="tmeXAxis" xml:space="preserve"><value>Axe X (horizontal)</value></data>
+  <data name="tmeYAxis" xml:space="preserve"><value>Axe Y (vertical)</value></data>
+  <data name="tmeWUp" xml:space="preserve"><value>Molette vers le haut</value></data>
+  <data name="tmeWDown" xml:space="preserve"><value>Molette vers le bas</value></data>
+  <data name="layoutActionGroups" xml:space="preserve"><value>Groupes d'actions</value></data>
+  <data name="layoutActionMaps" xml:space="preserve"><value>Cartes d'actions</value></data>
 </root>

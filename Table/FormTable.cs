@@ -52,13 +52,18 @@ namespace SCJMapper_V2.Table
       DGV.Columns["Disabled"].HeaderText = Tx.Translate( "tDisabled" );
     }
 
-    private void FormTable_Load( object sender, EventArgs e )
+    internal void ApplyLocalization()
     {
       Tx.LocalizeControlTree( this );
       btClrFilterAction.Text = Tx.Translate( "btClear" );
       btClrFilterDefBinding.Text = Tx.Translate( "btClear" );
       btClrFilterUsrBinding.Text = Tx.Translate( "btClear" );
       TranslateDGV( );
+    }
+
+    private void FormTable_Load( object sender, EventArgs e )
+    {
+      ApplyLocalization( );
 
       // Assign Size property - check if on screen, else use defaults
       if ( Commons.IsOnScreen( new Rectangle( AppSettings.Instance.FormTableLocation, AppSettings.Instance.FormTableSize ) ) ) {

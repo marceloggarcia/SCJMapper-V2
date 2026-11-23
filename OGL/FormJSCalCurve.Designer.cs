@@ -484,6 +484,7 @@
       this.lblYaw.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblYaw.Location = new System.Drawing.Point(2, 0);
       this.lblYaw.Name = "lblYaw";
+      this.lblYaw.Tag = "§";
       this.lblYaw.Size = new System.Drawing.Size(28, 13);
       this.lblYaw.TabIndex = 1;
       this.lblYaw.Text = "Yaw";
@@ -708,6 +709,7 @@
       this.lblPitch.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblPitch.Location = new System.Drawing.Point(2, 0);
       this.lblPitch.Name = "lblPitch";
+      this.lblPitch.Tag = "§";
       this.lblPitch.Size = new System.Drawing.Size(33, 13);
       this.lblPitch.TabIndex = 2;
       this.lblPitch.Text = "Pitch";
@@ -932,6 +934,7 @@
       this.lblRoll.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblRoll.Location = new System.Drawing.Point(2, 0);
       this.lblRoll.Name = "lblRoll";
+      this.lblRoll.Tag = "§";
       this.lblRoll.Size = new System.Drawing.Size(27, 13);
       this.lblRoll.TabIndex = 2;
       this.lblRoll.Text = "Roll";
@@ -1859,6 +1862,7 @@
       this.rbTuneStrafe.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.rbTuneStrafe.Location = new System.Drawing.Point(12, 68);
       this.rbTuneStrafe.Name = "rbTuneStrafe";
+      this.rbTuneStrafe.Tag = "§";
       this.rbTuneStrafe.Size = new System.Drawing.Size(111, 42);
       this.rbTuneStrafe.TabIndex = 0;
       this.rbTuneStrafe.Text = "Tune Strafe";
@@ -1872,6 +1876,7 @@
       this.rbTuneYPR.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.rbTuneYPR.Location = new System.Drawing.Point(12, 20);
       this.rbTuneYPR.Name = "rbTuneYPR";
+      this.rbTuneYPR.Tag = "§";
       this.rbTuneYPR.Size = new System.Drawing.Size(111, 42);
       this.rbTuneYPR.TabIndex = 0;
       this.rbTuneYPR.TabStop = true;

@@ -17,7 +17,9 @@ namespace SCJMapper_V2.SC
       profile = 0, // use profile texts
       english,   // must be the one used in the game assets.. Data\Localization\<lang>
       french,
-      german
+      german,
+      spanish_latin_america,
+      spanish_spain
       // ADD more if available
     }
 
@@ -25,7 +27,9 @@ namespace SCJMapper_V2.SC
     private SCLocale[] m_locales = { new SCLocale( Languages.profile.ToString( ) ), // creates an empty one and will return the default(profile string) later
                                      new SCLocale( Languages.english.ToString( ) ),
                                      new SCLocale( Languages.french.ToString( ) ),
-                                     new SCLocale( Languages.german.ToString( ) ) }; // add supported languages
+                                     new SCLocale( Languages.german.ToString( ) ),
+                                     new SCLocale( Languages.spanish_latin_america.ToString( ) ),
+                                     new SCLocale( Languages.spanish_spain.ToString( ) ) }; // add supported languages
 
     private Dictionary<string, string> m_action2label = new Dictionary<string, string>( );
 
@@ -50,6 +54,21 @@ namespace SCJMapper_V2.SC
     private static readonly Lazy<SCUiText> m_lazy = new Lazy<SCUiText>( () => new SCUiText( ) );
     public static SCUiText Instance { get => m_lazy.Value; }
 
+    public static bool TryGetLanguage( string name, out Languages language )
+    {
+      if ( string.IsNullOrEmpty( name ) ) {
+        language = Languages.profile;
+        return false;
+      }
+      switch ( name.ToLowerInvariant( ) ) {
+        case "french_(france)": name = "french"; break;
+        case "german_(germany)": name = "german"; break;
+        case "spanish_(latin_america)": name = "spanish_latin_america"; break;
+        case "spanish_(spain)": name = "spanish_spain"; break;
+      }
+      return Enum.TryParse( name, true, out language );
+    }
+
     /// <summary>
     /// Load all languages from Assets
     ///  like:  dfm_crusader_port_olisar=Port Olisar
@@ -59,7 +78,7 @@ namespace SCJMapper_V2.SC
       foreach ( string fileKey in SCFiles.Instance.LangFiles ) {
         string lang = Path.GetFileNameWithoutExtension( fileKey );
         // check if it is a valid language
-        if ( Enum.TryParse( lang, out Languages fileLang ) ) {
+        if ( TryGetLanguage( lang, out Languages fileLang ) ) {
           string fContent = SCFiles.Instance.LangFile( fileKey );
           using ( TextReader sr = new StringReader( fContent ) ) {
             string line = sr.ReadLine( );
@@ -72,8 +91,7 @@ namespace SCJMapper_V2.SC
                 if ( line.Length >= ( epo + 1 ) ) {
                   content = line.Substring( epo + 1 );
                 }
-                if ( tag.StartsWith( "ui_C" ) ) {
-                  // seems all strings we may need are ui_Cxyz
+                if ( tag.StartsWith( "ui_", StringComparison.Ordinal ) ) {
                   m_locales[(int)fileLang].Add( "@" + tag, content ); // cAT is prepending the tags
                 }
               }

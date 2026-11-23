@@ -331,6 +331,7 @@
       this.gbxColors.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.gbxColors.Location = new System.Drawing.Point(17, 16);
       this.gbxColors.Name = "gbxColors";
+      this.gbxColors.Tag = "§";
       this.gbxColors.Size = new System.Drawing.Size(534, 455);
       this.gbxColors.TabIndex = 0;
       this.gbxColors.TabStop = false;
@@ -391,6 +392,7 @@
       this.lblTextColor.Cursor = System.Windows.Forms.Cursors.Hand;
       this.lblTextColor.Location = new System.Drawing.Point(281, 181);
       this.lblTextColor.Name = "lblTextColor";
+      this.lblTextColor.Tag = "§";
       this.lblTextColor.Size = new System.Drawing.Size(157, 32);
       this.lblTextColor.TabIndex = 8;
       this.lblTextColor.Text = "Text Color";
@@ -415,6 +417,7 @@
       this.lblBackColor.Cursor = System.Windows.Forms.Cursors.Hand;
       this.lblBackColor.Location = new System.Drawing.Point(251, 162);
       this.lblBackColor.Name = "lblBackColor";
+      this.lblBackColor.Tag = "§";
       this.lblBackColor.Size = new System.Drawing.Size(211, 71);
       this.lblBackColor.TabIndex = 9;
       this.lblBackColor.Text = "Background Color";
@@ -502,6 +505,7 @@
       this.MinimizeBox = false;
       this.MinimumSize = new System.Drawing.Size(1225, 720);
       this.Name = "FormLayout";
+      this.Tag = "§";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
       this.Text = "Device Layout";
       this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormLayout_FormClosing);

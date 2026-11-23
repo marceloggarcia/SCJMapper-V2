@@ -83,6 +83,8 @@ namespace SCJMapper_V2.SC
         issue = Tx.Translate( "scpInvalidPath" ); // string.Format( "There is no vaild path given (invalid directory)" );
         return issue; // no valid one can be found
       }
+      if ( File.Exists( Path.Combine( basePath, "Data.p4k" ) ) ) return "";
+
       // 20180321 New PTU 3.1 another change in setup path - Testing for PTU first 
       // 20190711 Lanuncher 1.2 - PTU has moved - change detection to find this one first.
       basePath = Path.Combine( basePath, "StarCitizen" );
@@ -217,6 +219,7 @@ namespace SCJMapper_V2.SC
         string issue = "";
 
         if ( string.IsNullOrEmpty( scp ) ) return ""; // no valid one can be found
+        if ( File.Exists( Path.Combine( scp, "Data.p4k" ) ) ) return scp;
 
 
         // 20180321 New PTU 3.1 another change in setup path - Testing for PTU first 

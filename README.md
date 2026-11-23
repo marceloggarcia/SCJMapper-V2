@@ -23,6 +23,26 @@ using log4net.dll 2.0.12
 
 Built with VisualStudio 2017 Community free version
 
+## Star Citizen data
+
+In Settings, select either the installation base folder or the folder containing
+`Data.p4k` directly. The application reads its default action profile from that
+archive; if no profile is available, it uses the older bundled profile. To load
+USER mappings from the selector, the chosen client folder also needs its
+`USER\Controls\Mappings` or `USER\Client\0\Controls\Mappings` directory.
+Restart the application after changing the selected path.
+An external `defaultProfile.xml` in the working directory or USER directory
+takes precedence over the profile extracted from the archive.
+
+The language selector includes `spanish_latin_america` and `spanish_spain`.
+It changes the interface language and uses action labels extracted from
+`Data.p4k` when available. The `profile` option follows the system language for
+the interface and uses profile action labels.
+
+Controller layout definitions and images in `graphics\layouts` are copied next
+to the executable during the build. The layout dialog reads them from that
+location, regardless of the current working directory.
+
 
 ## Credits
 

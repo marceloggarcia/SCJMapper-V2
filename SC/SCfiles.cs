@@ -18,6 +18,8 @@ namespace SCJMapper_V2.SC
   {
     private static readonly log4net.ILog log = log4net.LogManager.GetLogger( System.Reflection.MethodBase.GetCurrentMethod( ).DeclaringType );
 
+    private const string LanguageCacheVersion = "localization-v2";
+
     private SCFile m_pakFile; // no content, carries only the filedate
     private SCFile m_defProfile;
     private Dictionary<string, SCFile> m_mapFiles;
@@ -108,7 +110,7 @@ namespace SCJMapper_V2.SC
         m_pakFile.Filename = Path.GetFileName( SCPath.SCData_p4k );
         m_pakFile.Filepath = Path.GetDirectoryName( SCPath.SCData_p4k );
         m_pakFile.FileDateTime = File.GetLastWriteTime( SCPath.SCData_p4k );
-        m_pakFile.Filedata = "DUMMY CONTENT ONLY"; // not really used
+        m_pakFile.Filedata = "";
       }
     }
 
@@ -207,7 +209,7 @@ namespace SCJMapper_V2.SC
     /// <summary>
     /// Update all language files from the pak file (treats it like never read..)
     /// </summary>
-    private void UpdateLangFiles()
+    private bool UpdateLangFiles()
     {
       log.Info( "UpdateLangFiles - Entry" );
 
@@ -216,37 +218,20 @@ namespace SCJMapper_V2.SC
           var PD = new p4kDirectory( );
           IList<p4kFile.p4kFile> fileList = PD.ScanDirectoryContaining( SCPath.SCData_p4k, @"\global.ini" );
           foreach ( p4kFile.p4kFile file in fileList ) {
-            string retVal = "";
             string lang = Path.GetFileNameWithoutExtension( Path.GetDirectoryName( file.Filename ) );
-            if ( Enum.TryParse( lang, out Languages fileLang ) ) {
+            if ( SCUiText.TryGetLanguage( lang, out Languages fileLang ) ) {
               byte[] fContent = PD.GetFile( SCPath.SCData_p4k, file );
-              using ( TextReader sr = new StringReader( Encoding.UTF8.GetString( fContent ) ) ) {
-                string line = sr.ReadLine( );
-                while ( line != null ) {
-                  // try to get only valid lines
-                  int epo = line.IndexOf( '=' );
-                  string tag = "";
-                  string content = "";
-                  if ( epo >= 0 ) {
-                    tag = line.Substring( 0, epo );
-                    if ( line.Length >= ( epo + 1 ) ) {
-                      content = line.Substring( epo + 1 );
-                    }
-                    if ( tag.StartsWith( "ui_C" ) ) {
-                      // seems all strings we may need are ui_Cxyz
-                      retVal += string.Format( "{0}\n", line );
-                    }
-                  }
-                  line = sr.ReadLine( );
-                }// while
-              }//using
+              if ( fContent.Length == 0 ) {
+                log.ErrorFormat( "UpdateLangFiles - could not read {0}", file.Filename );
+                return false;
+              }
               // make our file - only this one gets a new one
               SCFile obj = new SCFile {
                 Filetype = SCFile.FileType.LangFile,
-                Filename = Path.GetFileName( lang.ToLowerInvariant( ) ), // all files are named global.ini so we take the directory name (language)
+                Filename = fileLang.ToString( ),
                 Filepath = Path.GetDirectoryName( file.Filename ),
                 FileDateTime = file.FileModifyDate,
-                Filedata = retVal
+                Filedata = FilterLanguageContent( fContent )
               };
               // replace
               if ( m_langFiles.ContainsKey( obj.Filename ) )
@@ -256,11 +241,27 @@ namespace SCJMapper_V2.SC
             }
 
           }// all files
+          return true;
         }
         catch ( Exception ex ) {
           log.Error( "UpdateLangFiles - Unexpected ", ex );
         }
       }
+      return false;
+    }
+
+    private static string FilterLanguageContent( byte[] content )
+    {
+      var result = new StringBuilder( );
+      using ( TextReader reader = new StreamReader( new MemoryStream( content ), Encoding.UTF8, true ) ) {
+        string line;
+        while ( ( line = reader.ReadLine( ) ) != null ) {
+          if ( line.StartsWith( "ui_", StringComparison.Ordinal ) && line.IndexOf( '=' ) >= 0 ) {
+            result.AppendLine( line );
+          }
+        }
+      }
+      return result.ToString( );
     }
 
 
@@ -371,12 +372,18 @@ namespace SCJMapper_V2.SC
     /// <returns>True if the p4k file is newer than the saved data</returns>
     private bool NeedsUpdate()
     {
+      if ( string.IsNullOrEmpty( m_defProfile.Filedata ) ) return true;
+      if ( m_pakFile.Filedata != LanguageCacheVersion ) return true;
+
       bool pakUpdated = true; // need to read
       // check pak and see if we had read it already
       if ( m_pakFile.Filetype == SCFile.FileType.PakFile ) {
         // seems we have read and saved some files at least once
-        if ( File.Exists( SCPath.SCData_p4k ) ) {
-          DateTime dateTime = File.GetLastWriteTime( SCPath.SCData_p4k );
+        string pakPath = SCPath.SCData_p4k;
+        if ( File.Exists( pakPath ) ) {
+          if ( !string.Equals( m_pakFile.Filepath, Path.GetDirectoryName( pakPath ), StringComparison.OrdinalIgnoreCase )
+            || !string.Equals( m_pakFile.Filename, Path.GetFileName( pakPath ), StringComparison.OrdinalIgnoreCase ) ) return true;
+          DateTime dateTime = File.GetLastWriteTime( pakPath );
           pakUpdated = ( dateTime > m_pakFile.FileDateTime );
         }
       }
@@ -397,7 +404,7 @@ namespace SCJMapper_V2.SC
       UpdatePakFile( );
       UpdateDefProfileFile( );
       UpdateMapFiles( );
-      UpdateLangFiles( );
+      if ( UpdateLangFiles( ) ) m_pakFile.Filedata = LanguageCacheVersion;
 
       SavePack( ); // save the latest collection
     }

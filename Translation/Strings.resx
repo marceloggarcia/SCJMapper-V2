@@ -785,4 +785,24 @@ White background is treated as Transparent while drawing items to the image.</va
     <value>Show Layout Dialog...</value>
     <comment>1-Main</comment>
   </data>
+  <data name="FormLayout" xml:space="preserve"><value>Device Layout</value></data>
+  <data name="gbxColors" xml:space="preserve"><value>Layout Settings</value></data>
+  <data name="lblTextColor" xml:space="preserve"><value>Text Color</value></data>
+  <data name="lblBackColor" xml:space="preserve"><value>Background Color</value></data>
+  <data name="cbxPTU" xml:space="preserve"><value>Use PTU folders</value></data>
+  <data name="meDumpSCJoyServerCommands" xml:space="preserve"><value>Dump SCJoyServer Commands</value></data>
+  <data name="tabOptions" xml:space="preserve"><value>Flight Options</value></data>
+  <data name="tabDevOption" xml:space="preserve"><value>Device Options</value></data>
+  <data name="lblYaw" xml:space="preserve"><value>Yaw</value></data>
+  <data name="lblPitch" xml:space="preserve"><value>Pitch</value></data>
+  <data name="lblRoll" xml:space="preserve"><value>Roll</value></data>
+  <data name="rbTuneStrafe" xml:space="preserve"><value>Tune Strafe</value></data>
+  <data name="rbTuneYPR" xml:space="preserve"><value>Tune YPR</value></data>
+  <data name="tmeK_Tab" xml:space="preserve"><value>Kbd - TAB</value></data>
+  <data name="tmeXAxis" xml:space="preserve"><value>X-Axis (horizontal)</value></data>
+  <data name="tmeYAxis" xml:space="preserve"><value>Y-Axis (vertical)</value></data>
+  <data name="tmeWUp" xml:space="preserve"><value>Wheel Up</value></data>
+  <data name="tmeWDown" xml:space="preserve"><value>Wheel Down</value></data>
+  <data name="layoutActionGroups" xml:space="preserve"><value>Action groups</value></data>
+  <data name="layoutActionMaps" xml:space="preserve"><value>Action maps</value></data>
 </root>

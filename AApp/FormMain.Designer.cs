@@ -1349,6 +1349,7 @@
       // meDumpSCJoyServerCommands
       // 
       this.meDumpSCJoyServerCommands.Name = "meDumpSCJoyServerCommands";
+      this.meDumpSCJoyServerCommands.Tag = "§";
       this.meDumpSCJoyServerCommands.Size = new System.Drawing.Size(238, 22);
       this.meDumpSCJoyServerCommands.Text = "Dump SCJoyServer Commands";
       this.meDumpSCJoyServerCommands.Click += new System.EventHandler(this.meDumpSCJoyServerCommands_Click);

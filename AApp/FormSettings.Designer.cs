@@ -801,6 +801,7 @@
       // comboLanguage
       // 
       this.comboLanguage.FormattingEnabled = true;
+      this.comboLanguage.DropDownWidth = 190;
       this.comboLanguage.Location = new System.Drawing.Point(139, 70);
       this.comboLanguage.Name = "comboLanguage";
       this.comboLanguage.Size = new System.Drawing.Size(100, 21);
@@ -846,6 +847,7 @@
       this.cbxPTU.BackColor = System.Drawing.Color.SandyBrown;
       this.cbxPTU.Location = new System.Drawing.Point(400, 82);
       this.cbxPTU.Name = "cbxPTU";
+      this.cbxPTU.Tag = "§";
       this.cbxPTU.Size = new System.Drawing.Size(108, 17);
       this.cbxPTU.TabIndex = 7;
       this.cbxPTU.Text = "Use PTU folders";

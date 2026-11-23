@@ -102,7 +102,8 @@ namespace SCJMapper_V2.p4kFile
             string cPosS = cPos.ToString( "X" );
             m_recordOffset = cPos;
             m_item = p4kRecReader.ByteToType<MyRecord>( reader.TheReader );
-            m_itemValid = m_item.ID.SequenceEqual( p4kSignatures.LocalFileHeaderCry );
+            m_itemValid = m_item.ID.SequenceEqual( p4kSignatures.LocalFileHeaderCry )
+                       || m_item.ID.SequenceEqual( p4kSignatures.LocalFileHeader );
           } while ( ( cPos < reader.Length ) && !m_itemValid );
 
           // get some file attributes

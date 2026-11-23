@@ -268,7 +268,8 @@ namespace SCJMapper_V2.SC
             }
             break;
 
-          case GamepadCls.DeviceClass: {
+          case GamepadCls.DeviceClass:
+          case GamepadCls.DeviceClass_3_5: {
               XInput( ref xAC, l1action, (string)l1action.Attribute( "input" ) ); // may have attributed ones
               foreach ( XElement l2action in l1action.Elements( ) ) {
                 if ( l2action.Name.LocalName == "inputdata" ) {

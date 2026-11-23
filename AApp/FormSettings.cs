@@ -45,8 +45,7 @@ namespace SCJMapper_V2
       m_labels.Add( lblColor07 ); m_labels.Add( lblColor08 ); m_labels.Add( lblColor09 ); m_labels.Add( lblColor10 ); m_labels.Add( lblColor11 ); m_labels.Add( lblColor12 );
 
       // init GUI
-      Tx.LocalizeControlTree( this );
-      foreach ( var c in m_checks ) c.Text = Tx.Translate( "chkHideXX" );
+      ApplyLocalization( );
 
       chkLbActionMaps.Items.Clear( );
       for ( int i = 0; i < ActionMapsCls.ActionMaps.Length; i++ ) {
@@ -57,6 +56,12 @@ namespace SCJMapper_V2
       comboLanguage.Items.AddRange( SC.SCUiText.Instance.LanguagesS.ToArray( ) );
 
       LoadSettings( );
+    }
+
+    internal void ApplyLocalization()
+    {
+      Tx.LocalizeControlTree( this );
+      foreach ( var c in m_checks ) c.Text = Tx.Translate( "chkHideXX" );
     }
 
 

@@ -157,7 +157,7 @@ namespace SCJMapper_V2
     /// <summary>
     /// Graphics\Layouts folder name in the Application directory
     /// </summary>
-    static public string LayoutsDir => Path.Combine(GraphicsDir, "layouts");
+    static public string LayoutsDir => Path.Combine(AppDir, GraphicsDir, "layouts");
 
 
   }

@@ -58,6 +58,7 @@ namespace SCJMapper_V2
     {
       if ( FS == null ) FS = new FormSettings( );
       FS.PasteString = pasteString; // propagate joyinput
+      FS.ApplyLocalization( );
       FS.ShowDialog( );
       return ( FS.Canceled ) ? DialogResult.Cancel : DialogResult.OK;
     }

@@ -785,4 +785,24 @@ Hinweis:
 Weißer Hintergrund wird beim Zeichnen von Elementen auf das Bild als transparent behandelt.</value>
     <comment>9-Layout</comment>
   </data>
+  <data name="FormLayout" xml:space="preserve"><value>Gerätelayout</value></data>
+  <data name="gbxColors" xml:space="preserve"><value>Layout-Einstellungen</value></data>
+  <data name="lblTextColor" xml:space="preserve"><value>Textfarbe</value></data>
+  <data name="lblBackColor" xml:space="preserve"><value>Hintergrundfarbe</value></data>
+  <data name="cbxPTU" xml:space="preserve"><value>PTU-Ordner verwenden</value></data>
+  <data name="meDumpSCJoyServerCommands" xml:space="preserve"><value>SCJoyServer-Befehle anzeigen</value></data>
+  <data name="tabOptions" xml:space="preserve"><value>Flugoptionen</value></data>
+  <data name="tabDevOption" xml:space="preserve"><value>Geräteoptionen</value></data>
+  <data name="lblYaw" xml:space="preserve"><value>Gieren</value></data>
+  <data name="lblPitch" xml:space="preserve"><value>Nicken</value></data>
+  <data name="lblRoll" xml:space="preserve"><value>Rollen</value></data>
+  <data name="rbTuneStrafe" xml:space="preserve"><value>Bewegung einstellen</value></data>
+  <data name="rbTuneYPR" xml:space="preserve"><value>Drehung einstellen</value></data>
+  <data name="tmeK_Tab" xml:space="preserve"><value>Tastatur - TAB</value></data>
+  <data name="tmeXAxis" xml:space="preserve"><value>X-Achse (horizontal)</value></data>
+  <data name="tmeYAxis" xml:space="preserve"><value>Y-Achse (vertikal)</value></data>
+  <data name="tmeWUp" xml:space="preserve"><value>Mausrad nach oben</value></data>
+  <data name="tmeWDown" xml:space="preserve"><value>Mausrad nach unten</value></data>
+  <data name="layoutActionGroups" xml:space="preserve"><value>Aktionsgruppen</value></data>
+  <data name="layoutActionMaps" xml:space="preserve"><value>Aktionsbelegungen</value></data>
 </root>
