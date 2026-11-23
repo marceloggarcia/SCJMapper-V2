@@ -105,12 +105,10 @@ namespace SCJMapper_V2.Devices.Keyboard
       string retVal = input.Replace(" ","");
       if ( IsDisabledInput( input ) ) return input;
 
-      int plPos = retVal.IndexOf("+");
-      while (plPos>0) {
-        retVal.Insert( plPos + 1, "kb1_" );
-        plPos = retVal.IndexOf("+", plPos+1);
-      }
-      return "kb1_" + retVal;
+      string[] parts = retVal.Split( new[] { '+' }, StringSplitOptions.RemoveEmptyEntries );
+      if ( parts.Length == 0 ) return input;
+
+      return string.Join( "+", parts.Select( part => DeviceID + part ) );
     }
 
     // See also SC keybinding_localization.xml
