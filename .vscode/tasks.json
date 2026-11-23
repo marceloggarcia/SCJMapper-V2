@@ -3,16 +3,13 @@
     "tasks": [
         {
             "label": "build",
-            "command": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild\\Current\\Bin\\MSBuild.exe",
+            "command": "dotnet",
             "type": "process",
             "args": [
-                "${workspaceFolder}/SCJMapper-V2.csproj",
-                "/t:Rebuild",
-                "/p:Configuration=Debug",
-                "/p:Platform=x86",
-                "/p:RestoreProjectStyle=PackagesConfig",
-                "/p:SolutionDir=${workspaceFolder}/",
-                "/v:minimal"
+                "build",
+                "${workspaceFolder}/SCJMapper.Tests/SCJMapper.Tests.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
             "problemMatcher": "$msCompile"
         },
